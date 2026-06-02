@@ -32,12 +32,17 @@
 </head>
 <body class="bg-[#faf9f6] text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- 頂部公告欄 Top Announcement Bar -->
-    <div class="fixed top-0 w-full h-10 bg-[#8fa49b] text-white flex items-center justify-center text-xs md:text-sm z-[110] px-4 shadow-sm">
-        <span class="text-center w-full truncate">
-            追蹤 Wellnesstory 的 Instagram/Facebook 即享 <span class="font-bold">88折</span> (至 15/6)｜滿 <span class="font-bold">HK$800</span> 免運費
-        </span>
-    </div>
+<!-- 頂部公告欄 (修改為垂直兩行) -->
+<div class="fixed top-0 w-full h-auto min-h-[40px] py-1 bg-[#8fa49b] text-white flex flex-col items-center justify-center text-xs md:text-sm z-[110] px-4 shadow-sm">
+    <!-- 第一行：優惠活動 -->
+    <span class="text-center w-full">
+        追蹤 Wellnesstory 的 Instagram/Facebook 即享 <span class="font-bold">88折</span> (至 15/6)
+    </span>
+    <!-- 第二行：免運資訊 -->
+    <span class="text-center w-full">
+        滿 <span class="font-bold">HK$800</span> 免運費
+    </span>
+</div>
 
 <!-- 導覽列 Navbar -->
 <nav class="fixed w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 top-10" id="navbar">
