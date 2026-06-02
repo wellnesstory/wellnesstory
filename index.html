@@ -35,36 +35,57 @@
     <!-- 頂部公告欄 Top Announcement Bar -->
     <div class="fixed top-0 w-full h-10 bg-[#8fa49b] text-white flex items-center justify-center text-xs md:text-sm z-[110] px-4 shadow-sm">
         <span class="text-center w-full truncate">
-            ✨ 追蹤 Wellnesstory 的 Instagram/Facebook 即享 <span class="font-bold">88折</span> (至 15/6) ｜ 🚚 滿 <span class="font-bold">HK$800</span> 免運費
+            追蹤 Wellnesstory 的 Instagram/Facebook 即享 <span class="font-bold">88折</span> (至 15/6)｜滿 <span class="font-bold">HK$800</span> 免運費
         </span>
     </div>
 
-    <!-- 導覽列 Navbar (向下推 40px 以避開公告欄) -->
-    <nav class="fixed w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 top-10" id="navbar">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer relative z-10" onclick="window.scrollTo(0,0)">
-                    <img src="https://drive.google.com/thumbnail?id=1SncEjo24boX27bSdx80IUjt_El0j5Xf4&sz=w800" alt="Wellnesstory Logo" class="h-14 w-auto object-contain">
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center mr-8 relative z-10 pointer-events-auto">
-                    <a href="#about" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">關於我們</a>
-                    <a href="#chapter1" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">情緒香水</a>
-                    <a href="#chapter2" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">香氣扭扭花</a>
-                    <a href="#chapter3" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">你的專屬氣味日記</a>
-                    <a href="#customer" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">訂製禮品服務</a>
-                </div>
+<!-- 導覽列 Navbar -->
+<nav class="fixed w-full z-[100] bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 top-10" id="navbar">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
 
-                <!-- 購物車圖示 (獨立按鈕，確保一定點得到) -->
-                <button onclick="toggleCart()" class="relative text-gray-700 hover:text-[#8fa49b] transition-colors flex items-center p-2 rounded-full hover:bg-gray-100 z-20 pointer-events-auto">
-                    <i class="fas fa-shopping-bag text-2xl md:text-xl"></i>
-                    <span id="cart-count" class="absolute -top-1 -right-1 bg-[#8fa49b] text-white text-[10px] rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-sm">0</span>
+            <!-- 新增：手機版漢堡按鈕 (只有小螢幕顯示) -->
+            <button class="md:hidden text-2xl text-gray-700" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <div class="cursor-pointer" onclick="window.scrollTo(0,0)">
+                <img src="https://drive.google.com/thumbnail?id=1SncEjo24boX27bSdx80IUjt_El0j5Xf4&sz=w800" alt="Wellnesstory Logo" class="h-14 w-auto object-contain">
+            </div>
+
+            <!-- Desktop Menu (保持隱藏) -->
+            <div class="hidden md:flex space-x-8 items-center mr-8 relative z-10 pointer-events-auto">
+                <!-- (你的連結保持不變) -->
+                <a href="#about" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">關於我們</a>
+                <a href="#chapter1" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">情緒香水</a>
+                <a href="#chapter2" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">香氣扭扭花</a>
+                <a href="#chapter3" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">你的專屬氣味日記</a>
+                <a href="#customer" class="text-gray-600 hover:text-[#8fa49b] transition-colors font-medium">訂製禮品服務</a>
+            </div>
+
+            <!-- 購物車按鈕 -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative text-gray-700 hover:text-[#8fa49b] text-xl">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-[#8fa49b] text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-[105] bg-white pt-24 px-6">
+        <button class="absolute top-8 right-6 text-2xl" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        <div class="flex flex-col space-y-6 text-xl font-medium">
+            <a href="#about" onclick="toggleMobileMenu()">關於我們</a>
+            <a href="#chapter1" onclick="toggleMobileMenu()">情緒香水</a>
+            <a href="#chapter2" onclick="toggleMobileMenu()">香氣扭扭花</a>
+            <a href="#chapter3" onclick="toggleMobileMenu()">你的專屬氣味日記</a>
+            <a href="#customer" onclick="toggleMobileMenu()">訂製禮品服務</a>
+        </div>
+    </div>
 
     <!-- 首頁橫幅 Hero Section -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
@@ -99,6 +120,17 @@
                 <p class="font-medium text-[#8fa49b] text-xl pt-4">Wellnesstory，給自己一個擁抱。</p>
                 <p>在這裡，我們希望每一件產品，除了能讓你喜歡它的香氣與美感，<br class="hidden md:block">更能陪伴你走進內心，幫助你更了解自己。</p>
             </div>
+        </div>
+    </section>
+
+    <!-- AI 占卜 -->
+    <section class="py-16 bg-[#f4f7f6]">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-serif-tc mb-6">🔮 香氣故事占卜</h2>
+            <p class="text-gray-600 mb-6">寫下一句今天的心情，或是最近遇到的小故事，讓調香師為您推薦專屬的療癒香氣。</p>
+            <input type="text" id="oracle-input" placeholder="例如：今天覺得好疲憊，想看海..." class="w-full p-4 rounded-full border mb-4">
+            <button onclick="askScentOracle()" class="bg-[#8fa49b] text-white px-8 py-3 rounded-full">開始感應</button>
+            <div id="oracle-result" class="mt-8 hidden p-6 bg-white rounded-xl shadow-sm"></div>
         </div>
     </section>
 
@@ -500,14 +532,63 @@
             });
             
             text += `\n總計金額：HK$${total}\n\n`;
-            text += `💡 溫馨提示：\n`;
+            text += `溫馨提示：\n`;
             text += `- 若已 Follow 我們的 IG/FB/Threads，請告知我們以享用 88 折優惠（至 6月15日）！\n`;
-            text += `- 購物滿 HK$800 免運費，其餘為順豐到付。\n\n`;
             text += `(請傳送此訊息，我們將會盡快為您確認訂單，並提供付款方式，謝謝！)`;
             
             const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
+
+window.askScentOracle = async function() {
+    const input = document.getElementById('oracle-input').value.trim();
+    const res = document.getElementById('oracle-result');
+    
+    if (!input) {
+        alert("請先寫下你的心情喔！");
+        return;
+    }
+
+    res.classList.remove('hidden');
+    res.innerHTML = "✨ 調香師正在感應你的氣味頻率...";
+
+    // 模擬 AI 思考邏輯
+    setTimeout(() => {
+        let recommendation = "";
+        let reason = "";
+
+        // 根據輸入內容做簡單的「關鍵字聯想」
+        if (input.includes('累') || input.includes('疲') || input.includes('煩')) {
+            recommendation = "Gloomy";
+            reason = "這款香氣能溫柔地包圍你，讓疲憊的情緒得到安放與療癒。";
+        } else if (input.includes('開心') || input.includes('快樂') || input.includes('玩')) {
+            recommendation = "Joy";
+            reason = "這款香氣充滿活潑的果香，能完美延續你愉悅的心情！";
+        } else if (input.includes('自由') || input.includes('海') || input.includes('風')) {
+            recommendation = "Freedom";
+            reason = "這款香氣帶來清新的海風，適合嚮往自由、渴望空間的你。";
+        } else if (input.includes('焦慮') || input.includes('怕') || input.includes('壓力')) {
+            recommendation = "Anxious";
+            reason = "這款香氣擁有沉穩的木質力量，能撫平你的焦慮，找回內心的平靜。";
+        } else {
+            recommendation = "Unique";
+            reason = "這款香氣獨一無二，就像今天的你一樣，值得被細心呵護。";
+        }
+
+        res.innerHTML = `
+            <div class="animate-fade-in">
+                <p class="text-gray-500 text-sm italic">「${input}」</p>
+                <p class="mt-4 text-gray-800">感應到了... 推薦你使用 <span class="font-bold text-[#8fa49b] text-xl">${recommendation}</span></p>
+                <p class="text-gray-600 mt-2">${reason}</p>
+            </div>
+        `;
+    }, 1500);
+}
+// 手機選單開關控制
+window.toggleMobileMenu = function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
 
         // 初始化
         window.onload = () => {
